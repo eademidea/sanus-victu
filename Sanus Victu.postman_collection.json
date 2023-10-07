@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "696a8212-1f72-4994-86c9-14ddc32d92bd",
+		"name": "Sanus Victu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5068569"
+	},
+	"item": [
+		{
+			"name": "localhost:8083/food/record",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Arroz\",\n  \"calories\": 115,\n  \"quantityInGrams\": 100,\n  \"fat\": 100,\n  \"protein\": 100,\n  \"carbohydrates\": 100,\n  \"mealType\": \"BIG\",\n  \"mineral\": [\n    {\n      \"name\": \"Cálcio\",\n      \"quantity\": 1\n    }\n  ],\n  \"vitamin\": [\n    {\n      \"name\": \"Vitamina D\",\n      \"quantity\": 200,\n      \"foodId\": 1\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8083/food/record",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"food",
+						"record"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,14 +1,8 @@
-import {
-  Column,
-  DataType,
-  ForeignKey,
-  Model,
-  Table,
-} from 'sequelize-typescript';
-import { Food } from './food.model';
 import { ApiProperty } from '@nestjs/swagger';
+import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import { Food } from '../food/food.model';
 
-@Table({ tableName: 'vitamin' })
+@Table({ tableName: 'vitamin', createdAt: false, updatedAt: false })
 export class Vitamin extends Model<Vitamin> {
   @ApiProperty({ example: '1', description: 'Id do registro do banco.' })
   @Column({
@@ -19,13 +13,13 @@ export class Vitamin extends Model<Vitamin> {
   })
   id: number;
 
-  @ApiProperty({ example: 'Ferro', description: 'Nome do mineral...' })
+  @ApiProperty({ example: 'Vitamina D', description: 'Nome da vitamina...' })
   @Column({ type: DataType.STRING })
   name: string;
 
   @ApiProperty({
     example: '200',
-    description: 'quantidade do mineral na medida padrão...',
+    description: 'quantidade da vitamina na medida padrão...',
   })
   @Column({ type: DataType.DECIMAL })
   quantity: number;
@@ -34,7 +28,6 @@ export class Vitamin extends Model<Vitamin> {
     example: '1',
     description: 'Id do registro de referencia da comida.',
   })
-  @ForeignKey(() => Food)
   @Column({ type: DataType.INTEGER })
   foodId: Food;
 }

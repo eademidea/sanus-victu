@@ -1,16 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  Column,
-  DataType,
-  HasMany,
-  Model,
-  Table
-} from 'sequelize-typescript';
-import { Vitamin } from './mineral.model';
-import { Mineral } from './vitamin.model';
+import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
+import { Mineral } from 'src/mineral/mineral.model';
+import { Vitamin } from 'src/vitamin/vitamin.model';
 
-@Table({ tableName: 'food' })
+@Table({ tableName: 'food', createdAt: false, updatedAt: false })
 export class Food extends Model<Food> {
   @ApiProperty({ example: '1', description: 'Id do registro do banco.' })
   @Column({
@@ -64,7 +58,7 @@ export class Food extends Model<Food> {
     onDelete: 'CASCADE',
     hooks: true,
   })
-  mineral: Array<Mineral>;
+  mineral: Mineral[];
 
   @ApiProperty({
     example: '[{id: 1, name: Vitamina D, quantity: 200, foodId: 1 }]',
@@ -78,5 +72,5 @@ export class Food extends Model<Food> {
     onDelete: 'CASCADE',
     hooks: true,
   })
-  vitamin: Array<Vitamin>;
+  vitamin: Vitamin[];
 }

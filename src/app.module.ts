@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { FoodModule } from './food/food.module';
-import { Mineral } from './food/vitamin.model';
-import { Vitamin } from './food/mineral.model';
 import { Food } from './food/food.model';
+import { FoodModule } from './food/food.module';
+import { MineralModule } from './mineral/mineral.module';
+import { VitaminModule } from './vitamin/vitamin.module';
+import { Mineral } from './mineral/mineral.model';
+import { Vitamin } from './vitamin/vitamin.model';
 
 @Module({
   imports: [
@@ -22,6 +24,8 @@ import { Food } from './food/food.model';
       autoLoadModels: true,
     }),
     FoodModule,
+    MineralModule,
+    VitaminModule,
   ],
   controllers: [],
   providers: [],
