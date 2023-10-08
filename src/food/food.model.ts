@@ -16,7 +16,7 @@ export class Food extends Model<Food> {
   id: number;
 
   @ApiProperty({ example: 'Arroz', description: 'Nome do alimento...' })
-  @Column({ type: DataType.STRING })
+  @Column({ type: DataType.STRING, unique:true })
   name: string;
 
   @ApiProperty({ example: '115', description: 'Calorias do alimento' })
@@ -52,7 +52,7 @@ export class Food extends Model<Food> {
   })
   @HasMany(() => Mineral, {
     foreignKey: {
-      name: 'id',
+      name: 'foodId',
       allowNull: false,
     },
     onDelete: 'CASCADE',
@@ -66,7 +66,7 @@ export class Food extends Model<Food> {
   })
   @HasMany(() => Vitamin, {
     foreignKey: {
-      name: 'id',
+      name: 'foodId',
       allowNull: false,
     },
     onDelete: 'CASCADE',

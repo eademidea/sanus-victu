@@ -13,4 +13,17 @@ export class FoodService {
   async recordFood(food: Food) {
     return await this.foodRepository.create(food);
   }
+
+  async getFoodByName(name: string) {
+    return await this.connection.query(
+      `select * from food where upper(name) = upper('${name}')`,
+    );
+  }
+
+  // async getFoodByName(name: string) {
+  //   return await this.foodRepository.findAll({
+  //     where: { name },
+  //     include: { all: true },
+  //   });
+  // }
 }

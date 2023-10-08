@@ -14,20 +14,26 @@ export class FoodController {
 
   @Post('/record')
   async recordFood(@Body() food: Food) {
-    const response = await this.foodService.recordFood(food);
+    const response = await this.foodService.getFoodByName(food.name);
+    if (response[0].length > 0) {
+      return 'erro';
+    } else {
+      const recordedFood = await this.foodService.recordFood(food);
+      food.mineral.map(async (x) => {
+        x.foodId = new Food();
+        x.foodId.id = recordedFood.dataValues.id;
+        const mineralResponse = await this.mineralService.recordMineral(x);
+        recordedFood.mineral = mineralResponse;
+      });
 
-    food.mineral.map((x) => {
-      x.foodId = new Food();
-      x.foodId.id = response.dataValues.id;
-      this.mineralService.recordMineral(x);
-    });
+      food.vitamin.map(async (x) => {
+        x.foodId = new Food();
+        x.foodId.id = recordedFood.dataValues.id;
+        const vitaminResponse = await this.vitaminService.recordVitamin(x);
+        recordedFood.vitamin = vitaminResponse;
+      });
 
-    food.vitamin.map((x) => {
-      x.foodId = new Food();
-      x.foodId.id = response.dataValues.id;
-      this.vitaminService.recordVitamin(x);
-    });
-
-    return 'Registro gravado com sucesso.';
+      return recordedFood;
+    }
   }
 }
