@@ -1,4 +1,10 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  HttpException,
+  HttpStatus,
+  Post,
+} from '@nestjs/common';
 import { MineralService } from 'src/mineral/mineral.service';
 import { VitaminService } from 'src/vitamin/vitamin.service';
 import { Food } from './food.model';
@@ -16,7 +22,10 @@ export class FoodController {
   async recordFood(@Body() food: Food) {
     const response = await this.foodService.getFoodByName(food.name);
     if (response[0].length > 0) {
-      return 'erro';
+      throw new HttpException(
+        'Alimento já cadastrado na base de dados.',
+        HttpStatus.UNPROCESSABLE_ENTITY,
+      );
     } else {
       const recordedFood = await this.foodService.recordFood(food);
       food.mineral.map(async (x) => {
