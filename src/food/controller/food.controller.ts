@@ -5,10 +5,10 @@ import {
   HttpStatus,
   Post,
 } from '@nestjs/common';
-import { MineralService } from 'src/mineral/mineral.service';
+import { MineralService } from 'src/food/mineral/services/mineral.service';
 import { VitaminService } from 'src/vitamin/vitamin.service';
-import { Food } from './food.model';
-import { FoodService } from './food.service';
+import { Food } from '../models/food.model';
+import { FoodService } from '../service/food.service';
 
 @Controller('food')
 export class FoodController {

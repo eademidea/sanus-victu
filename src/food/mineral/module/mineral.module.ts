@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { Food } from 'src/food/food.model';
-import { MineralService } from './mineral.service';
-import { Mineral } from './mineral.model';
+import { Food } from 'src/food/models/food.model';
+import { MineralService } from '../services/mineral.service';
+import { Mineral } from '../models/mineral.model';
 
 @Module({
   controllers: [],

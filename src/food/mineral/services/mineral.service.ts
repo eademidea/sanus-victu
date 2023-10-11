@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectConnection, InjectModel } from '@nestjs/sequelize';
 import { Connection } from 'typeorm';
-import { Mineral } from './mineral.model';
+import { Mineral } from '../models/mineral.model';
 
 @Injectable()
 export class MineralService {

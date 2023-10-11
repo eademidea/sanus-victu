@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectConnection, InjectModel } from '@nestjs/sequelize';
 import { Connection } from 'typeorm';
-import { Food } from './food.model';
+import { Food } from '../models/food.model';
 
 @Injectable()
 export class FoodService {
