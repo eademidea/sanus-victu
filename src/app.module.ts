@@ -7,8 +7,8 @@ import { Mineral } from './food/mineral/models/mineral.model';
 import { MineralModule } from './food/mineral/module/mineral.module';
 import { Food } from './food/models/food.model';
 import { FoodModule } from './food/module/food.module';
-import { Vitamin } from './food/vitamin/vitamin.model';
-import { VitaminModule } from './food/vitamin/vitamin.module';
+import { Vitamin } from './food/vitamin/models/vitamin.model';
+import { VitaminModule } from './food/vitamin/module/vitamin.module';
 
 @Module({
   imports: [
