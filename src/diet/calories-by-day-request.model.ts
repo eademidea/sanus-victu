@@ -9,7 +9,10 @@ export class CaloriesByDayRequest {
    @ApiProperty({ example: 1.81, description: 'Altura da pessoa.' })
    height: number
 
-   @ApiProperty({ example: 'LIGHT', description: 'Objetivo da pessoa.' })
+   @ApiProperty({
+      example: 'LIGHT / MODERATE / INTENSE / NA',
+      description: 'Objetivo da pessoa.',
+   })
    goal: Goal
 
    @ApiProperty({ example: 'MALE', description: 'Gênero.' })

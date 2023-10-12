@@ -8,7 +8,7 @@ export class ActivityFactor {
       caloriesByDayRequest: CaloriesByDayRequest,
       tbmParameter: number
    ) {
-      let fa = 0
+      let fa = 1
       if (caloriesByDayRequest.gender.toString() == 'MALE') {
          switch (caloriesByDayRequest.goal) {
             case Goal.LIGHT.toString():
