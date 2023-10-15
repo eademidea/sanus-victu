@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common'
-import { Goal } from 'src/diet/models/goal.enum'
 import { CaloriesByDayRequest } from '../../calories-by-day-request.model'
 import { ActivityFactor } from './activity-factor-calculator-component'
 import { CaloriesConsumption } from './calories-consumption-component'

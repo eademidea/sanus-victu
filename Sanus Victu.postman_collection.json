@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"name\": \"Arroz\",\n  \"calories\": 115,\n  \"quantityInGrams\": 100,\n  \"fat\": 100,\n  \"protein\": 100,\n  \"carbohydrates\": 100,\n  \"mealType\": \"BIG\",\n  \"mineral\": [\n    {\n      \"name\": \"Cálcio\",\n      \"quantity\": 1\n    }\n  ],\n  \"vitamin\": [\n    {\n      \"name\": \"Vitamina D\",\n      \"quantity\": 200,\n      \"foodId\": 1\n    }\n  ]\n}",
+					"raw": "{\n  \"name\": \"Papa\",\n  \"calories\": 115,\n  \"quantityInGrams\": 100,\n  \"fat\": 100,\n  \"protein\": 100,\n  \"carbohydrates\": 100,\n  \"mealType\": \"BIG\",\n  \"mineral\": [\n    {\n      \"name\": \"Cálcio\",\n      \"quantity\": 1\n    },\n    {\n      \"name\": \"Cálcio D\",\n      \"quantity\": 1\n    }\n  ],\n  \"vitamin\": [\n    {\n      \"name\": \"Vitamina D\",\n      \"quantity\": 200\n    },\n    {\n      \"name\": \"Vitamina C\",\n      \"quantity\": 200\n    },\n    {\n      \"name\": \"Vitamina B\",\n      \"quantity\": 200\n    }\n  ]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -29,6 +29,54 @@
 					"path": [
 						"food",
 						"record"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/macro/calculate/2000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/macro/calculate/2015.8",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"macro",
+						"calculate",
+						"2015.8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/values/calories-by-day",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"age\": 31,\n  \"height\": 1.81,\n  \"goal\": \"NA\",\n  \"gender\": \"MALE\",\n  \"weight\": 98\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8083/values/calories-by-day",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"values",
+						"calories-by-day"
 					]
 				}
 			},

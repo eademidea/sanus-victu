@@ -5,11 +5,13 @@ import {
    HttpStatus,
    Post,
 } from '@nestjs/common'
+import { ApiTags } from '@nestjs/swagger'
 import { MineralService } from 'src/food/mineral/services/mineral.service'
 import { Food } from '../models/food.model'
 import { FoodService } from '../service/food.service'
 import { VitaminService } from '../vitamin/services/vitamin.service'
 
+@ApiTags('Cadastro alimentos')
 @Controller('food')
 export class FoodController {
    constructor(

@@ -1,20 +1,17 @@
-import { Body, Controller, Get, Post } from '@nestjs/common'
+import { Body, Controller, Post } from '@nestjs/common'
+import { ApiTags } from '@nestjs/swagger'
 import { CaloriesByDayRequest } from '../calories-by-day-request.model'
-import { MacrosRequest } from '../models/macros-request.model'
 import { ValuesService } from '../services/values.service'
 
+@ApiTags('Calculo calorias')
 @Controller('values')
 export class ValuesController {
    constructor(private valuesService: ValuesService) {}
 
-   @Get('/get-macros')
-   async getMacros(@Body() macrosRequest: MacrosRequest) {
-      console.log(macrosRequest)
-      return 'em construção'
-   }
-
    @Post('/calories-by-day')
    async getCaloriesByDay(@Body() caloriesByDayRequest: CaloriesByDayRequest) {
-      return this.valuesService.getCaloriesByDay(caloriesByDayRequest)
+      return {
+         calories: this.valuesService.getCaloriesByDay(caloriesByDayRequest),
+      }
    }
 }
