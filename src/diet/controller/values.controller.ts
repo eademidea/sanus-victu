@@ -8,6 +8,7 @@ import { ValuesService } from '../services/values.service'
 export class ValuesController {
    constructor(private valuesService: ValuesService) {}
 
+   /** Este método deverá ser ajustado para ser GET */
    @Post('/calories-by-day')
    async getCaloriesByDay(@Body() caloriesByDayRequest: CaloriesByDayRequest) {
       return {
